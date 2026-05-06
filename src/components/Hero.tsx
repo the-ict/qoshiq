@@ -24,7 +24,7 @@ const HeroSection: React.FC = () => {
         <img src="/assets/hero.png" alt="" className='rounded-[10px]' />
       </div>
 
-      <section className="min-h-[400px] grid grid-cols-2 w-full py-16 flex-col md:flex-row justify-between items-start font-sans text-[#1a1a1a]">
+      <section className="min-h-[400px] grid grid-cols-2 w-full mt-12 flex-col md:flex-row justify-between items-start font-sans text-[#1a1a1a]">
         <div className="flex items-start gap-12 grid-cols-5">
           <span className="text-xs font-medium tracking-widest text-gray-500 uppercase">
             / Studio /
