@@ -4,6 +4,8 @@ import Hero from '../components/Hero';
 import Menu from '../components/Menu';
 import HowItWorks from '../components/Process';
 import Projects from '../components/Projects';
+import ContactSection from '../components/ContactSection';
+import Footer from '../components/Footer';
 
 export default function Home() {
 
@@ -16,6 +18,8 @@ export default function Home() {
                 <Services />
                 <HowItWorks />
                 <Projects />
+                <ContactSection />
+                <Footer />
             </div>
         </div>
     );

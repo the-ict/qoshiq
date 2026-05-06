@@ -51,7 +51,7 @@ export default function Projects() {
                                     Bu odamlarning haqiqiy ehtiyojlarini chuqur o'rganish natijasida imkon topdi.
                                 </p>
                                 <p className="text-gray-700 text-md leading-relaxed">
-                                    KodHub Smart Meetings-ning tadqiqoti va dizaynida faol ishtirok etdi - bu Miro-da
+                                    Toppon Smart Meetings-ning tadqiqoti va dizaynida faol ishtirok etdi - bu Miro-da
                                     loyihalarda ishlash tajribasini yangi darajaga ko'tarish uchun mo'ljallangan yechim.
                                     Bu eng ko'p foydalanilayotgan xususiyat bo'lib, ko'plab yangi mijozlarni jalb qiladi
                                     va kompaniyaning o'sha yildagi eng muhim stavkasi edi.
