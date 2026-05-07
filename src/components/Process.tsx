@@ -51,8 +51,8 @@ const HowItWorks: React.FC = () => {
         <div className="min-h-screen text-[#1a1a1a] font-sans">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-20">
                 <div>
-                    <span className="text-xs uppercase tracking-widest text-gray-500 mb-4 block">/ Jarayon /</span>
-                    <h1 className="text-5xl md:text-6xl font-medium leading-tight">
+                    <span className="text-xs uppercase tracking-widest text-gray-500 mb-4 block fade-down">/ Jarayon /</span>
+                    <h1 className="text-5xl md:text-6xl font-medium leading-tight fade-down">
                         Dasturlash orqali biznesingizni rivojlantiring
                         <span className="inline-block ml-4 align-middle">
                             <svg width="80" height="20" viewBox="0 0 100 20" fill="none">
@@ -62,7 +62,7 @@ const HowItWorks: React.FC = () => {
                     </h1>
                 </div>
                 <div className="flex flex-col justify-end">
-                    <p className="text-gray-600 max-w-md leading-relaxed">
+                    <p className="text-gray-600 max-w-md leading-relaxed fade-down">
                         Toppon bilan o'z biznesingizni raqamlashtiring: Fikr, Ishlab chiqish, Takomillash.
                         Bizneslarga moslashtirilgan IT yechimlar - loyihani boshqarish,
                         web aplikatsiya, mobil ilova. O'z g'oyangizni haqiqatga aylantiring.
@@ -72,11 +72,11 @@ const HowItWorks: React.FC = () => {
 
             <div className="max-w-7xl mx-auto">
                 <div className="flex flex-col md:flex-row justify-between items-end mb-8 gap-4">
-                    <h2 className="text-4xl font-medium">Loyihani yaratish jarayoni</h2>
+                    <h2 className="text-4xl font-medium fade-down">Loyihani yaratish jarayoni</h2>
 
                     <div className="w-full md:w-1/3">
                         <div className="flex justify-between text-[10px] uppercase tracking-tighter mb-2">
-                            <div className="flex gap-4">
+                            <div className="flex gap-4 fade-down">
                                 <button
                                     onClick={() => setActiveStep(1)}
                                     className={`font-bold cursor-pointer transition-colors ${activeStep === 1 ? 'text-black' : 'text-gray-400'}`}
@@ -96,7 +96,7 @@ const HowItWorks: React.FC = () => {
                                     Qadam /03/
                                 </button>
                             </div>
-                            <span className="font-bold">Progress <span className="text-xl">{Math.round(progressPercentage)}%</span></span>
+                            <span className="font-bold fade-down">Progress <span className="text-xl">{Math.round(progressPercentage)}%</span></span>
                         </div>
                         <div className="h-4 bg-gray-200 rounded-full overflow-hidden relative">
                             <div
@@ -112,16 +112,16 @@ const HowItWorks: React.FC = () => {
                 <div className="grid grid-cols-1 md:grid-cols-2 bg-[#e8e6e1] rounded-xl overflow-hidden min-h-[500px]">
                     <div className="p-12 flex flex-col justify-between">
                         <div>
-                            <h3 className="text-2xl font-semibold mb-4">{currentStep.title}</h3>
+                            <h3 className="text-2xl font-semibold mb-4 fade-down">{currentStep.title}</h3>
                             <p className="text-lg font-medium leading-snug mb-12 max-w-sm">
                                 {currentStep.description}
                             </p>
 
                             <div className="space-y-4">
-                                <p className="font-bold text-sm mb-6">Quyidagilarga ehtiyoj bo'lsa:</p>
+                                <p className="font-bold text-sm mb-6 fade-down">Quyidagilarga ehtiyoj bo'lsa:</p>
                                 <ul className="space-y-4 text-gray-600 text-sm">
                                     {currentStep.items.map((item, idx) => (
-                                        <li key={idx}>• {item}</li>
+                                        <li key={idx} className='fade-down'>• {item}</li>
                                     ))}
                                 </ul>
                             </div>
@@ -129,7 +129,7 @@ const HowItWorks: React.FC = () => {
                     </div>
 
                     <div className="h-full w-full">
-                        <img src={imageProcess[currentStep.id - 1]} alt="" className='h-full w-full object-cover' />
+                        <img src={imageProcess[currentStep.id - 1]} alt="" className='h-full w-full object-cover fade-down' />
                     </div>
                 </div>
             </div>
