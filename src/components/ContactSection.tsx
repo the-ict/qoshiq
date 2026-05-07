@@ -3,13 +3,11 @@ const ContactSection = () => {
     <section className="bg-[#222222] mt-10 text-white py-20 px-8 md:px-16 lg:px-24 rounded-[40px] overflow-hidden">
       <div className="max-w-7xl mx-auto">
         
-        {/* Header Area with Decorative SVG */}
         <div className="relative mb-20">
           <h2 className="text-6xl md:text-8xl font-medium leading-[0.9] max-w-2xl">
             Birgalikda Proyektni Boshlaylik
           </h2>
           
-          {/* Decorative Path & Icons */}
           <div className="absolute top-0 right-0 hidden lg:block">
             <svg width="400" height="300" viewBox="0 0 400 300" fill="none">
               <path 
@@ -24,7 +22,6 @@ const ContactSection = () => {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-16">
-          {/* Left Side: Info */}
           <div className="flex flex-col justify-between">
             <p className="text-gray-400 text-lg max-w-sm leading-relaxed">
               Biz bepul konsultatsiya beramiz. Mijozlarni faollashtirish, 
@@ -39,7 +36,6 @@ const ContactSection = () => {
             </div>
           </div>
 
-          {/* Right Side: Form */}
           <form className="space-y-10">
             <div className="border-b border-gray-700 pb-2">
               <label className="block text-[10px] uppercase tracking-widest text-gray-500 mb-1">

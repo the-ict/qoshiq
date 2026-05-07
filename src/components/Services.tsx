@@ -47,6 +47,14 @@ const ServicesMockData: IServices[] = [
 export default function Services() {
     return (
         <div className="min-h-screen py-10">
+            <div className="flex items-start my-10">
+                <span className="text-xs font-medium tracking-widest text-gray-500 uppercase fade-down">
+                    / Services /
+                </span>
+                <h1 className="ml-5 text-3xl md:text-5xl max-w-xl lg:text-6xl font-semibold leading-tight tracking-tight fade-down">
+                    Bizning xizmatlarimiz bilan tanishing.
+                </h1>
+            </div>
             <div>
                 {
                     ServicesMockData.map((i) => (

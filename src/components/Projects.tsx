@@ -1,6 +1,6 @@
 export default function Projects() {
     return (
-        <section className="w-full">
+        <section className="w-full" id="works">
             <div className="grid grid-cols-1 md:grid-cols-12 gap-8 items-start">
 
                 <div className="md:col-span-2">
