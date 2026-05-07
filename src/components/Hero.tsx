@@ -40,7 +40,7 @@ const HeroSection: React.FC = () => {
     });
   }, [])
   return (
-    <div className="min-h-screen text-[#1A1A1A] font-sans py-8">
+    <div className="min-h-screen text-[#1A1A1A] font-sans py-8 max-md:text-[25px]">
       <main className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
         <div className="lg:col-span-7">
           <h1 className="text-7xl md:text-9xl font-semibold leading-[0.9] tracking-tight mb-8 hero-title">
@@ -62,7 +62,7 @@ const HeroSection: React.FC = () => {
         <img src="/assets/hero.png" alt="" className='rounded-[10px] hero-img' />
       </div>
 
-      <section className="min-h-[400px] grid grid-cols-2 w-full mt-12 flex-col md:flex-row justify-between items-start font-sans text-[#1a1a1a]">
+      <section className="min-h-[400px] grid grid-cols-2 w-full mt-12 flex-col md:flex-row justify-between items-start font-sans text-[#1a1a1a] max-md:grid-cols-1">
         <div className="flex items-start gap-12 grid-cols-5">
           <span className="text-xs font-medium tracking-widest text-gray-500 uppercase fade-down">
             / Studio /
@@ -77,12 +77,12 @@ const HeroSection: React.FC = () => {
             Biz bepulga konsultatsiyani taminlaymiz, avtomatlashtirish, startup, mobile ilova, web dastur, erp va crm haqida malumot oling
           </p>
 
-          <div className="flex flex-wrap items-center gap-4">
-            <div className="bg-[#ebebeb] px-6 py-4 rounded-full text-sm font-medium text-gray-700 max-w-[280px] fade-down">
+          <div className="flex flex-wrap items-center gap-4 max-md:w-full">
+            <div className="bg-[#ebebeb] max-md:max-w-full px-6 py-4 rounded-full text-sm font-medium text-gray-700 max-w-[280px] fade-down">
               Biz savollaringizga qisqa telefonda javob beramiz
             </div>
 
-            <button className="bg-[#828282] hover:bg-[#6e6e6e] transition-colors text-white px-8 py-4 rounded-full flex items-center gap-3 group fade-down">
+            <button className="bg-[#828282] max-md:w-full hover:bg-[#6e6e6e] transition-colors text-white px-8 py-4 rounded-full flex items-center gap-3 group fade-down">
               <span className="text-lg">Keling gaplashamiz</span>
               <svg
                 width="20"

@@ -2,12 +2,53 @@ import { useState, useRef } from 'react';
 import gsap from 'gsap';
 import { useGSAP } from '@gsap/react';
 
+const projectsData = [
+    {
+        id: 1,
+        title: "AKBW",
+        subtitle: "Interaktiv taxtada ishlash vositalari",
+        description: "Biz loyihaga innovativ dizayn orqali sanoatni taravul qilishda yordam berdik. Bu odamlarning haqiqiy ehtiyojlarini chuqur o'rganish natijasida imkon topdi.",
+        details: "Toppon Smart Meetings-ning tadqiqoti va dizaynida faol ishtirok etdi - bu loyihalarda ishlash tajribasini yangi darajaga ko'tarish uchun mo'ljallangan yechim.",
+        image: "/assets/projects/akbw.png",
+        logo: "/assets/akbw.png",
+        color: "#e2e4eb"
+    },
+    {
+        id: 2,
+        title: "FINTECH SOLUTIONS",
+        subtitle: "Raqamli banking platformasi",
+        description: "Murakkab moliyaviy jarayonlarni soddalashtiruvchi va foydalanuvchilar uchun qulay interfeys yaratdik.",
+        details: "Xavfsizlik va tezkorlikni birinchi o'ringa qo'ygan holda, bank tizimlari uchun zamonaviy frontend va backend yechimlarini taqdim etdik.",
+        image: "/assets/projects/akbw.png",
+        logo: "/assets/akbw.png",
+        color: "#f0f2f5"
+    },
+    {
+        id: 3,
+        title: "ECOMMERCE HUB",
+        subtitle: "Onlayn savdo ekotizimi",
+        description: "Biznesingizni kengaytirish uchun mo'ljallangan, masshtablanuvchi va optimallashtirilgan do'kon tizimi.",
+        details: "To'lov tizimlari va logistika bilan integratsiya qilingan, foydalanuvchi konversiyasini oshiruvchi platforma ishlab chiqdik.",
+        image: "/assets/projects/akbw.png",
+        logo: "/assets/akbw.png",
+        color: "#e8e6e1"
+    },
+    {
+        id: 4,
+        title: "LOGISTIC PRO",
+        subtitle: "Yuk tashishni boshqarish tizimi",
+        description: "Logistika zanjirini to'liq nazorat qilish va avtomatlashtirish imkonini beruvchi CRM platformasi.",
+        details: "Real vaqt rejimida kuzatish, marshrutlarni optimallashtirish va hisobotlarni avtomatik shakllantirish funksiyalarini joriy qildik.",
+        image: "/assets/projects/akbw.png",
+        logo: "/assets/akbw.png",
+        color: "#dce0e5"
+    }
+];
+
 export default function Projects() {
     const [currentSlide, setCurrentSlide] = useState(0);
     const carouselRef = useRef<HTMLDivElement>(null);
     const projectsRef = useRef<HTMLDivElement>(null);
-
-    const projects = [1, 2, 3, 4];
 
     useGSAP(() => {
         gsap.fromTo(projectsRef.current, {
@@ -26,14 +67,16 @@ export default function Projects() {
     }, []);
 
     const slideToProject = (index: number) => {
-        const validIndex = Math.max(0, Math.min(index, projects.length - 1));
+        const validIndex = Math.max(0, Math.min(index, projectsData.length - 1));
         setCurrentSlide(validIndex);
 
-        gsap.to(carouselRef.current, {
-            x: -validIndex * 100 + '%',
-            duration: 0.8,
-            ease: "power3.inOut"
-        });
+        if (carouselRef.current) {
+            gsap.to(carouselRef.current, {
+                xPercent: -validIndex * (100 / projectsData.length),
+                duration: 0.8,
+                ease: "expo.out"
+            });
+        }
     };
 
     const nextSlide = () => {
@@ -45,111 +88,124 @@ export default function Projects() {
     };
 
     return (
-        <section className="w-full" id="works" ref={projectsRef}>
-            <div className="grid grid-cols-1 md:grid-cols-12 gap-8 items-start">
+        <section className="w-full py-20 px-4 md:px-10 overflow-hidden" id="works" ref={projectsRef}>
+            <div className="grid grid-cols-1 md:grid-cols-12 gap-8 items-start mb-16">
                 <div className="md:col-span-2">
-                    <span className="text-xs font-medium tracking-widest text-gray-500 uppercase fade-down">
+                    <span className="text-xs font-semibold tracking-[0.2em] text-gray-400 uppercase">
                         / Ishlarimiz /
                     </span>
                 </div>
 
                 <div className="md:col-span-5">
-                    <h2 className="text-4xl md:text-5xl font-semibold text-[#333] tracking-tight flex items-start fade-down">
+                    <h2 className="text-4xl md:text-5xl font-bold text-[#1a1a1a] tracking-tight flex items-start">
                         Eng oxirgi loyihalarimiz
-                        <span className="text-lg ml-1 mt-1 font-normal opacity-70">{projects.length}</span>
+                        <span className="text-xl ml-2 mt-1 font-medium opacity-40">{projectsData.length}</span>
                     </h2>
                 </div>
 
                 <div className="md:col-span-5">
-                    <p className="text-gray-500 text-lg leading-relaxed max-w-lg fade-down">
+                    <p className="text-gray-500 text-lg md:text-xl leading-relaxed max-w-lg">
                         Bizning loyihalar portfoliysini o'rganing - bu yerda biz innovativ IT
-                        yechimlar bilan bizneslarni raqamlashtirdik. Web saytlardan mobil
-                        ilovalarigacha, CRM sistemalaridan e-commerce platformasigacha.
-                        Biz har bir loyihani zamonaviy texnologiya, mukammal dizayn va
-                        foydalanuvchi tajribasini prioritet qilib takomillashtiradik.
+                        yechimlar bilan bizneslarni raqamlashtirdik. Har bir loyiha biz uchun yangi imkoniyat.
                     </p>
                 </div>
             </div>
 
-            <div className="relative mt-20 overflow-hidden">
-                <div className="overflow-hidden rounded-[40px]">
+            <div className="relative group">
+                <div className="overflow-visible">
                     <div
                         ref={carouselRef}
                         className="flex transition-none"
-                        style={{ width: `${projects.length * 100}%` }}
+                        style={{ width: `${projectsData.length * 100}%` }}
                     >
-                        {projects.map((i) => (
-                            <div key={i} className="w-1/4" style={{ width: `${100 / projects.length}%` }}>
-                                <section className="bg-[#e2e4eb] p-20 font-sans mx-2 rounded-[40px]" style={{ minHeight: '600px' }}>
-                                    <div className="grid grid-cols-1 md:grid-cols-12 gap-12">
-
-                                        <div className="md:col-span-4 flex flex-col justify-between">
-                                            <div className="space-y-1">
-                                                <span className="text-gray-500 text-sm block mb-8">Yangi loyiha {i}</span>
-                                                <h2 className="text-xl font-bold text-gray-900 uppercase tracking-tight">PROJECT {i}</h2>
-                                                <p className="text-gray-500 text-sm">(Interaktiv taxtada ishlash vositalari)</p>
+                        {projectsData.map((project, idx) => (
+                            <div
+                                key={project.id}
+                                className="w-full px-2 md:px-4"
+                                style={{ width: `${100 / projectsData.length}%` }}
+                            >
+                                <div
+                                    className="rounded-[3rem] p-8 md:p-20 flex flex-col transition-all duration-700"
+                                    style={{
+                                        backgroundColor: project.color,
+                                        minHeight: '650px',
+                                        opacity: currentSlide === idx ? 1 : 0.4,
+                                        scale: currentSlide === idx ? 1 : 0.95,
+                                        transform: currentSlide === idx ? 'translateY(0)' : 'translateY(20px)'
+                                    }}
+                                >
+                                    <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 h-full">
+                                        <div className="lg:col-span-4 flex flex-col justify-between">
+                                            <div className="space-y-6">
+                                                <span className="text-gray-500 text-sm font-semibold uppercase tracking-widest block">Loyiha {idx + 1}</span>
+                                                <div>
+                                                    <h3 className="text-3xl md:text-4xl font-black text-gray-900 uppercase tracking-tighter mb-2">{project.title}</h3>
+                                                    <p className="text-gray-600 text-base md:text-lg font-medium">({project.subtitle})</p>
+                                                </div>
                                             </div>
 
-                                            <div className="bg-white rounded-2xl p-12 flex items-center justify-center shadow-sm">
-                                                <img src="/assets/akbw.png" alt="Logo" className="w-10 h-10 rounded-full" />
+                                            <div className="mt-12 lg:mt-0">
+                                                <div className="inline-flex bg-white/50 backdrop-blur-md rounded-2xl p-6 items-center justify-center shadow-sm border border-white/20 hover:scale-105 transition-transform cursor-pointer">
+                                                    <img src={project.logo} alt={project.title} className="w-12 h-12 rounded-full object-cover" />
+                                                </div>
                                             </div>
                                         </div>
 
-                                        <div className="md:col-span-8 flex flex-col gap-12">
-
+                                        <div className="lg:col-span-8 flex flex-col gap-10">
                                             <div className="flex flex-col md:flex-row justify-between items-start gap-8">
                                                 <div className="max-w-xl space-y-6">
-                                                    <p className="text-gray-800 text-lg font-medium leading-snug">
-                                                        Biz loyihaga innovativ dizayn orqali sanoatni taravul qilishda yordam berdik.
-                                                        Bu odamlarning haqiqiy ehtiyojlarini chuqur o'rganish natijasida imkon topdi.
+                                                    <p className="text-gray-900 text-xl md:text-2xl font-semibold leading-tight">
+                                                        {project.description}
                                                     </p>
-                                                    <p className="text-gray-700 text-md leading-relaxed">
-                                                        Toppon Smart Meetings-ning tadqiqoti va dizaynida faol ishtirok etdi - bu
-                                                        loyihalarda ishlash tajribasini yangi darajaga ko'tarish uchun mo'ljallangan yechim.
+                                                    <p className="text-gray-700 text-base md:text-lg leading-relaxed opacity-80">
+                                                        {project.details}
                                                     </p>
                                                 </div>
 
-                                                <button className="bg-[#1a1a1a] text-white px-6 py-3 rounded-full flex items-center gap-3 hover:bg-black transition-colors shrink-0">
-                                                    <span className="text-sm font-medium">Jonli ko'ring</span>
-                                                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                                                <button className="bg-[#1a1a1a] text-white px-8 py-4 rounded-full flex items-center gap-3 hover:bg-black hover:scale-105 transition-all shadow-xl shrink-0">
+                                                    <span className="text-sm font-bold uppercase tracking-wider">Loyihani ko'rish</span>
+                                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
                                                         <path d="M7 17l9.2-9.2M17 17V7H7" />
                                                     </svg>
                                                 </button>
                                             </div>
 
-                                            <div className="bg-white rounded-3xl overflow-hidden shadow-sm p-4">
-                                                <img
-                                                    src="/assets/projects/akbw.png"
-                                                    alt="Project"
-                                                    className="w-full h-auto rounded-xl"
-                                                />
+                                            <div className="relative mt-auto">
+                                                <div className="bg-white/40 backdrop-blur-sm rounded-[2rem] overflow-hidden shadow-2xl p-2 md:p-4 group/img">
+                                                    <img
+                                                        src={project.image}
+                                                        alt={project.title}
+                                                        className="w-full h-auto rounded-[1.5rem] transform transition-transform duration-700 group-hover/img:scale-[1.02]"
+                                                    />
+                                                </div>
                                             </div>
-
                                         </div>
                                     </div>
-                                </section>
+                                </div>
                             </div>
                         ))}
                     </div>
                 </div>
 
-                <div className="flex items-center justify-between mt-8 px-4">
+                <div className="flex items-center justify-between mt-12 px-4 max-w-4xl mx-auto">
                     <button
                         onClick={prevSlide}
                         disabled={currentSlide === 0}
-                        className="p-3 rounded-full bg-[#f0f0f0] hover:bg-[#e0e0e0] disabled:opacity-50 disabled:cursor-not-allowed transition-all group"
+                        className="w-14 h-14 rounded-full flex items-center justify-center bg-white shadow-lg border border-gray-100 hover:bg-gray-50 disabled:opacity-30 disabled:cursor-not-allowed transition-all group z-10"
                     >
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="group-hover:-translate-x-1 transition-transform">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="group-hover:-translate-x-1 transition-transform">
                             <path d="M15 19l-7-7 7-7" />
                         </svg>
                     </button>
 
-                    <div className="flex gap-2">
-                        {projects.map((_, index) => (
+                    <div className="flex items-center gap-4">
+                        {projectsData.map((_, index) => (
                             <button
                                 key={index}
                                 onClick={() => slideToProject(index)}
-                                className={`h-2 rounded-full transition-all ${index === currentSlide ? 'w-8 bg-black' : 'w-2 bg-gray-300'
+                                className={`h-1.5 rounded-full transition-all duration-500 ${index === currentSlide
+                                    ? 'w-12 bg-[#1a1a1a]'
+                                    : 'w-2 bg-gray-300 hover:bg-gray-400'
                                     }`}
                             />
                         ))}
@@ -157,19 +213,19 @@ export default function Projects() {
 
                     <button
                         onClick={nextSlide}
-                        disabled={currentSlide === projects.length - 1}
-                        className="p-3 rounded-full bg-[#f0f0f0] hover:bg-[#e0e0e0] disabled:opacity-50 disabled:cursor-not-allowed transition-all group"
+                        disabled={currentSlide === projectsData.length - 1}
+                        className="w-14 h-14 rounded-full flex items-center justify-center bg-[#1a1a1a] text-white shadow-xl hover:bg-black disabled:opacity-30 disabled:cursor-not-allowed transition-all group z-10"
                     >
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="group-hover:translate-x-1 transition-transform">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="group-hover:translate-x-1 transition-transform">
                             <path d="M9 5l7 7-7 7" />
                         </svg>
                     </button>
                 </div>
 
-                <div className="text-center mt-6 text-gray-600 text-sm">
-                    {currentSlide + 1} / {projects.length}
+                <div className="text-center mt-8 font-mono text-sm tracking-widest text-gray-400">
+                    <span className="text-[#1a1a1a] font-bold">0{currentSlide + 1}</span> / 0{projectsData.length}
                 </div>
             </div>
         </section>
-    )
+    );
 }

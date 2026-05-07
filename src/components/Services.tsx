@@ -1,3 +1,6 @@
+import { useRef } from 'react';
+import gsap from 'gsap';
+import { useGSAP } from '@gsap/react';
 import SingleServiceTab, { IServices } from "./SingleServiceTab"
 
 const ServicesMockData: IServices[] = [
@@ -43,25 +46,68 @@ const ServicesMockData: IServices[] = [
     },
 ]
 
-
 export default function Services() {
+    const containerRef = useRef<HTMLDivElement>(null);
+    const headerRef = useRef<HTMLDivElement>(null);
+
+    useGSAP(() => {
+        // Advanced Header Reveal
+        const headerElements = headerRef.current?.children;
+        if (headerElements) {
+            gsap.from(headerElements, {
+                y: 50,
+                opacity: 0,
+                duration: 1.2,
+                stagger: 0.2,
+                ease: "expo.out",
+                scrollTrigger: {
+                    trigger: headerRef.current,
+                    start: "top 85%",
+                }
+            });
+        }
+
+        // Staggered Items Reveal
+        const items = gsap.utils.toArray(".service-item-reveal");
+        gsap.from(items, {
+            y: 100,
+            opacity: 0,
+            duration: 1,
+            stagger: 0.1,
+            ease: "power4.out",
+            scrollTrigger: {
+                trigger: containerRef.current,
+                start: "top 75%",
+            }
+        });
+    }, { scope: containerRef });
+
     return (
-        <div className="min-h-screen py-10">
-            <div className="flex items-start my-10">
-                <span className="text-xs font-medium tracking-widest text-gray-500 uppercase fade-down">
-                    / Services /
+        <section className="py-24 md:py-40 px-4 md:px-10 overflow-hidden" ref={containerRef} id="services">
+            <div className="flex flex-col lg:flex-row items-start mb-20 md:mb-32 gap-8 lg:gap-16" ref={headerRef}>
+                <span className="text-xs font-black tracking-[0.4em] text-gray-400 uppercase pt-2">
+                    / Xizmatlar /
                 </span>
-                <h1 className="ml-5 text-3xl md:text-5xl max-w-xl lg:text-6xl font-semibold leading-tight tracking-tight fade-down">
-                    Bizning xizmatlarimiz bilan tanishing.
-                </h1>
+                <div className="max-w-4xl">
+                    <h2 className="text-5xl md:text-7xl lg:text-8xl font-bold leading-[0.95] tracking-tight text-[#1a1a1a]">
+                        Biznesingizni <br /> 
+                        <span className="text-gray-400">rivojlantiring.</span>
+                    </h2>
+                    <p className="mt-12 text-xl md:text-2xl text-gray-500 max-w-xl font-medium leading-relaxed">
+                        Biz sizning biznesingiz uchun eng zamonaviy va innovatsion IT yechimlarni taqdim etamiz.
+                    </p>
+                </div>
             </div>
-            <div>
+            
+            <div className="border-t border-gray-100">
                 {
-                    ServicesMockData.map((i) => (
-                        <SingleServiceTab key={i.id} service={i} />
+                    ServicesMockData.map((service, index) => (
+                        <div key={service.id} className="service-item-reveal">
+                            <SingleServiceTab service={service} index={index + 1} />
+                        </div>
                     ))
                 }
             </div>
-        </div>
+        </section>
     )
 }

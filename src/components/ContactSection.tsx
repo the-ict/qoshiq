@@ -69,7 +69,7 @@ const ContactSection = () => {
 
             <button
               type="submit"
-              className="bg-white text-black px-8 py-4 rounded-full flex items-center gap-3 hover:bg-gray-200 transition-all font-medium group"
+              className="bg-white max-md:w-full text-black px-8 py-4 rounded-full flex items-center gap-3 hover:bg-gray-200 transition-all font-medium group"
             >
               <span className="text-gray-400 group-hover:translate-x-1 transition-transform">→</span>
               Xabar Yuborish
