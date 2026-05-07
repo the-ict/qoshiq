@@ -1,9 +1,6 @@
 import React from 'react';
 import gsap from 'gsap';
-import ScrollTrigger from 'gsap/ScrollTrigger';
 import { useGSAP } from '@gsap/react';
-
-gsap.registerPlugin(ScrollTrigger);
 
 const HeroSection: React.FC = () => {
 
@@ -40,22 +37,6 @@ const HeroSection: React.FC = () => {
     }, {
       opacity: 1,
       scale: 1,
-    });
-
-    gsap.utils.toArray(".fade-down").forEach((element: any) => {
-      gsap.fromTo(element, {
-        y: 40,
-        opacity: 0,
-      }, {
-        y: 0,
-        opacity: 1,
-        duration: 0.8,
-        scrollTrigger: {
-          trigger: element,
-          start: "top 80%",
-          toggleActions: "play none none none"
-        }
-      });
     });
   }, [])
   return (

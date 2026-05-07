@@ -113,7 +113,7 @@ const HowItWorks: React.FC = () => {
                     <div className="p-12 flex flex-col justify-between">
                         <div>
                             <h3 className="text-2xl font-semibold mb-4 fade-down">{currentStep.title}</h3>
-                            <p className="text-lg font-medium leading-snug mb-12 max-w-sm">
+                            <p className="text-lg font-medium leading-snug mb-12 max-w-sm fade-down">
                                 {currentStep.description}
                             </p>
 
