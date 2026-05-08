@@ -15,10 +15,10 @@ const Footer = () => {
 
         <div className="flex flex-col md:flex-row gap-16 md:gap-32 max-md:grid max-md:grid-cols-2">
           <nav className="flex flex-col gap-3">
-            <a href="#" className="text-sm text-gray-800 hover:text-black transition-colors">Home</a>
-            <a href="#" className="text-sm text-gray-800 hover:text-black transition-colors">Services</a>
-            <a href="#" className="text-sm text-gray-800 hover:text-black transition-colors">Process</a>
-            <a href="#" className="text-sm text-gray-800 hover:text-black transition-colors">Case studies</a>
+            <a href="/" className="text-sm text-gray-800 hover:text-black transition-colors">Bosh sahifa</a>
+            <a href="#services" className="text-sm text-gray-800 hover:text-black transition-colors">Xizmatlar</a>
+            <a href="#process" className="text-sm text-gray-800 hover:text-black transition-colors">Jarayon</a>
+            <a href="#projects" className="text-sm text-gray-800 hover:text-black transition-colors">Loyihalar</a>
           </nav>
 
           <nav className="flex flex-col gap-3">

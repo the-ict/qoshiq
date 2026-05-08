@@ -1,11 +1,35 @@
+import { useGSAP } from "@gsap/react";
+import gsap from "gsap";
+
 const ContactSection = () => {
+  useGSAP(() => {
+    const contactTimeline = gsap.timeline({
+      scrollTrigger: {
+        trigger: "#contact",
+        start: "top, bottom",
+        end: "top, top",
+        scrub: false,
+      }
+    });
+
+
+    contactTimeline.from(".contact-hero-title", {
+      yPercent: 100,
+      opacity: 0,
+    })
+
+    contactTimeline.from(".contact-hero-subtitle", {
+      yPercent: 100,
+      opacity: 0,
+    });
+  }, [])
   return (
-    <section className="bg-[#222222] mt-10 text-white py-20 px-8 md:px-16 lg:px-24 rounded-[40px] overflow-hidden">
+    <section className="bg-[#222222] mt-10 text-white py-20 px-8 md:px-16 lg:px-24 rounded-[40px] overflow-hidden" id="contact">
       <div className="max-w-7xl mx-auto">
 
         <div className="relative mb-20">
-          <h2 className="text-6xl md:text-8xl font-medium leading-[0.9] max-w-2xl">
-            Birgalikda Proyektni Boshlaylik
+          <h2 className="text-6xl md:text-8xl font-medium leading-[0.9] max-w-2xl contact-hero-title">
+            Birgalikda Loyihani Boshlaylik
           </h2>
 
           <div className="absolute top-0 right-0 hidden lg:block">
@@ -23,16 +47,14 @@ const ContactSection = () => {
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-16">
           <div className="flex flex-col justify-between">
-            <p className="text-gray-400 text-lg max-w-sm leading-relaxed">
-              Biz bepul konsultatsiya beramiz. Mijozlarni faollashtirish,
-              onboarding dizayni, mahsulot murakkabligini kamaytirish
-              yoki o'sish tajribalarida maslahat oling.
+            <p className="text-gray-400 text-lg max-w-sm leading-relaxed contact-hero-subtitle">
+              Biz bepulga konsultatsiyani taminlaymiz, avtomatlashtirish, startup, mobile ilova, web dastur, erp va crm haqida malumot oling
             </p>
 
             <div className="mt-12 space-y-2">
-              <span className="text-xs uppercase tracking-widest text-gray-500">Biz bilan Aloqa</span>
-              <p className="text-xl font-medium">toppon@gmail.com</p>
-              <p className="text-xl font-medium">+998 90 157 71 61</p>
+              <span className="text-xs uppercase tracking-widest text-gray-500 contact-hero-subtitle">Biz bilan Aloqa</span>
+              <p className="text-xl font-medium contact-hero-subtitle">toppon@gmail.com</p>
+              <p className="text-xl font-medium contact-hero-subtitle">+998 90 157 71 61</p>
             </div>
           </div>
 

@@ -48,7 +48,7 @@ const HowItWorks: React.FC = () => {
     const progressPercentage = (activeStep / 3) * 100;
 
     return (
-        <div className="min-h-screen text-[#1a1a1a] font-sans">
+        <section className="min-h-screen text-[#1a1a1a] font-sans md:py-[100px]" id='process'>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-20">
                 <div>
                     <span className="text-xs uppercase tracking-widest text-gray-500 mb-4 block fade-down">/ Jarayon /</span>
@@ -133,7 +133,7 @@ const HowItWorks: React.FC = () => {
                     </div>
                 </div>
             </div>
-        </div>
+        </section>
     );
 };
 

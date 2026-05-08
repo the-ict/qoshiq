@@ -59,7 +59,7 @@ const HeroSection: React.FC = () => {
       </main>
 
       <div className="mt-12">
-        <img src="/assets/hero.png" alt="" className='rounded-[10px] hero-img' />
+        <img src="/assets/hero.png" alt="" className='rounded-[10px] hero-img w-full' />
       </div>
 
       <section className="min-h-[400px] grid grid-cols-2 w-full mt-12 flex-col md:flex-row justify-between items-start font-sans text-[#1a1a1a] max-md:grid-cols-1">
