@@ -18,7 +18,7 @@ const Footer = () => {
             <a href="/" className="text-sm text-gray-800 hover:text-black transition-colors">Bosh sahifa</a>
             <a href="#services" className="text-sm text-gray-800 hover:text-black transition-colors">Xizmatlar</a>
             <a href="#process" className="text-sm text-gray-800 hover:text-black transition-colors">Jarayon</a>
-            <a href="#projects" className="text-sm text-gray-800 hover:text-black transition-colors">Loyihalar</a>
+            <a href="#works" className="text-sm text-gray-800 hover:text-black transition-colors">Loyihalar</a>
           </nav>
 
           <nav className="flex flex-col gap-3">
