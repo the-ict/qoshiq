@@ -40,7 +40,7 @@ const HeroSection: React.FC = () => {
     });
   }, [])
   return (
-    <div className="min-h-screen text-[#1A1A1A] font-sans py-8 max-md:text-[25px]">
+    <div id="home" className="min-h-screen text-[#1A1A1A] font-sans py-8 max-md:text-[25px]">
       <main className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
         <div className="lg:col-span-7">
           <h1 className="text-7xl md:text-9xl font-semibold leading-[0.9] tracking-tight mb-8 hero-title">

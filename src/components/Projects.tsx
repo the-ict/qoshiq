@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
-import gsap from 'gsap';
 import { Link } from 'react-router-dom';
 import { useGSAP } from '@gsap/react';
+import gsap from 'gsap';
 
 const projectsData = [
     {
@@ -100,7 +100,6 @@ export default function Projects() {
 
     const onSlideClick = (slideNumber: number) => {
         if (currentSlide === slideNumber) return;
-        // first last slide should disappear, so we are going to make this animation first.
         const sliderTimeline = gsap.timeline();
 
         sliderTimeline.to(".project-img", {
@@ -136,45 +135,96 @@ export default function Projects() {
     };
 
     return (
-        <section className="w-full py-20 px-4 md:px-10 overflow-hidden" id="works">
-            <div className="grid grid-cols-1 md:grid-cols-12 gap-8 items-start mb-16">
+        <section className="w-full py-24 px-4 md:px-10 overflow-hidden" id="works">
+            <div className="grid grid-cols-1 md:grid-cols-12 gap-8 items-start mb-20">
                 <div className="md:col-span-2">
-                    <span className="text-xs font-semibold tracking-[0.2em] text-gray-400 uppercase works-line">
+                    <span className="text-xs font-bold tracking-[0.4em] text-gray-400 uppercase works-line">
                         / Ishlarimiz /
                     </span>
                 </div>
 
                 <div className="md:col-span-5">
-                    <h2 className="text-4xl md:text-5xl font-bold text-[#1a1a1a] tracking-tight flex items-start works-headline">
+                    <h2 className="text-5xl md:text-6xl font-bold text-[#1a1a1a] tracking-tight flex items-start works-headline leading-none">
                         Eng oxirgi loyihalarimiz
-                        <span className="text-xl ml-2 mt-1 font-medium opacity-40">{projectsData.length}</span>
+                        <span className="text-xl ml-3 mt-2 font-medium opacity-20">{projectsData.length}</span>
                     </h2>
                 </div>
 
                 <div className="md:col-span-5">
-                    <p className="text-gray-500 text-lg md:text-xl leading-relaxed max-w-lg works-subtitle">
+                    <p className="text-gray-400 text-lg md:text-xl leading-relaxed max-w-lg works-subtitle font-medium">
                         Bizning loyihalar portfoliysini o'rganing - bu yerda biz innovativ IT
                         yechimlar bilan bizneslarni raqamlashtirdik. Har bir loyiha biz uchun yangi imkoniyat.
                     </p>
                 </div>
             </div>
 
-            <div className="flex items-center justify-between gap-10 max-lg:flex-col">
-                <div className='max-lg:w-full w-[60%] flex items-center gap-10 p-10 rounded bg-white/80'>
-                    <img src="/assets/projects/akbw.png" alt="" className='h-[400px] w-[60%] project-img p-5 rounded bg-gray-100' />
-                    <div className='flex flex-col gap-5 items-start'>
-                        <h3 className='project-name py-2 px-5 bg-yellow-900 rounded text-white'>{projectsData[currentSlide].title}</h3>
-                        <p className='project-description'>{projectsData[currentSlide].description}</p>
+            <div className="flex flex-col lg:flex-row items-stretch justify-between gap-12">
+                <div className='w-full lg:w-[70%] flex flex-col md:flex-row items-center gap-12 p-10 rounded-[40px] bg-white/30 border border-black/5 shadow-2xl shadow-black/[0.03]'>
+                    <div
+                        className='w-full md:w-1/2 aspect-square md:aspect-auto md:h-[450px] rounded-[30px] flex items-center justify-center p-12 transition-colors duration-700'
+                        style={{ backgroundColor: projectsData[currentSlide].color }}
+                    >
+                        <img
+                            src={projectsData[currentSlide].image}
+                            alt={projectsData[currentSlide].title}
+                            className='w-full h-full object-contain project-img drop-shadow-2xl scale-90'
+                        />
+                    </div>
 
-                        <Link to={projectsData[currentSlide].link} className='cursor-pointer py-3 px-10 project-live-button bg-white rounded-full text-black border-2 text-xs font-bold hover:bg-black hover:text-white hover:border-white hover:border-2 transition-all'>Jonli ko'ring</Link>
+                    <div className='w-full md:w-1/2 flex flex-col gap-8 items-start'>
+                        <div className='flex flex-col gap-3'>
+                            <span className='project-subtitle text-[10px] font-black tracking-[0.3em] text-gray-400 uppercase'>
+                                {projectsData[currentSlide].subtitle}
+                            </span>
+                            <h3 className='project-name text-4xl md:text-5xl font-bold text-[#1a1a1a] leading-tight'>
+                                {projectsData[currentSlide].title}
+                            </h3>
+                        </div>
+
+                        <p className='project-description text-gray-500 text-lg leading-relaxed font-medium'>
+                            {projectsData[currentSlide].description}
+                        </p>
+
+                        <Link
+                            to={projectsData[currentSlide].link}
+                            className='cursor-pointer py-5 px-12 project-live-button bg-[#1a1a1a] rounded-full text-white text-sm font-bold hover:bg-black transition-all shadow-xl hover:shadow-black/20 flex items-center gap-3 group'
+                        >
+                            Jonli ko'ring
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="group-hover:translate-x-1 transition-transform">
+                                <path d="M5 12h14M12 5l7 7-7 7" />
+                            </svg>
+                        </Link>
                     </div>
                 </div>
-                <div className='w-[40%] max-lg:w-full max-lg:flex max-lg:items-center max-lg:justify-center grid grid-cols-4 gap-5'>
+
+                <div className='w-full lg:w-[30%] flex lg:flex-col gap-4 overflow-x-auto lg:overflow-visible pb-4 lg:pb-0'>
                     {
-                        projectsData.map(i => (
-                            <div className='p-5 rounded-lg cursor-pointer' key={i.id} onClick={() => onSlideClick(i.id)}>
-                                <img src={i.image} alt="Project image" className='h-[80px]' />
-                                <h3 className='mt-3 text-xs'>{i.title}</h3>
+                        projectsData.map((project, index) => (
+                            <div
+                                key={project.id}
+                                className={`group flex-shrink-0 w-[240px] lg:w-full p-5 rounded-3xl cursor-pointer transition-all duration-500 border-2 ${currentSlide === index
+                                    ? 'border-[#1a1a1a] bg-white shadow-xl shadow-black/5'
+                                    : 'border-transparent bg-white/50 hover:bg-white/80'
+                                    }`}
+                                onClick={() => onSlideClick(index)}
+                            >
+                                <div className='flex items-center gap-5'>
+                                    <div
+                                        className='w-16 h-16 rounded-2xl flex-shrink-0 flex items-center justify-center p-3 transition-colors duration-500'
+                                        style={{ backgroundColor: project.color }}
+                                    >
+                                        <img src={project.image} alt="" className='w-full h-full object-contain' />
+                                    </div>
+                                    <div className='flex flex-col gap-1'>
+                                        <h4 className={`text-sm font-bold transition-colors ${currentSlide === index ? 'text-[#1a1a1a]' : 'text-gray-400 group-hover:text-gray-600'
+                                            }`}>
+                                            {project.title}
+                                        </h4>
+                                        <span className='text-[10px] text-gray-400 font-bold uppercase tracking-wider'>
+                                            Project / 0{index + 1}
+                                        </span>
+                                    </div>
+                                </div>
                             </div>
                         ))
                     }
