@@ -18,7 +18,6 @@ const ContactSection = () => {
       }
     });
 
-
     contactTimeline.from(".contact-hero-title", {
       yPercent: 100,
       opacity: 0,
@@ -28,7 +27,7 @@ const ContactSection = () => {
       yPercent: 100,
       opacity: 0,
     });
-  }, [])
+  }, []);
 
   const onSubmitContacts = async () => {
     try {
@@ -85,7 +84,7 @@ const ContactSection = () => {
             </div>
           </div>
 
-          <form className="space-y-10">
+          <form className="space-y-10" onSubmit={(e) => e.preventDefault}>
             <div className="border-b border-gray-700 pb-2">
               <label className="block text-[10px] uppercase tracking-widest text-gray-500 mb-1">
                 Ism va Familiya
@@ -124,6 +123,7 @@ const ContactSection = () => {
 
             <button
               type="submit"
+              onClick={onSubmitContacts}
               className="bg-white max-md:w-full text-black px-8 py-4 rounded-full flex items-center gap-3 hover:bg-gray-200 transition-all font-medium group"
             >
               <span className="text-gray-400 group-hover:translate-x-1 transition-transform">→</span>
