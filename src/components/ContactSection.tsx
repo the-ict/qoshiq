@@ -1,7 +1,13 @@
 import { useGSAP } from "@gsap/react";
+import axios from "axios";
 import gsap from "gsap";
+import { useState } from "react";
+
 
 const ContactSection = () => {
+  const [name, setName] = useState<string>("");
+  const [phone, setPhone] = useState<string>("+998");
+  const [about, setAbout] = useState<string>("");
   useGSAP(() => {
     const contactTimeline = gsap.timeline({
       scrollTrigger: {
@@ -23,6 +29,27 @@ const ContactSection = () => {
       opacity: 0,
     });
   }, [])
+
+  const onSubmitContacts = async () => {
+    try {
+      const response = await axios.post("https://api.akbw.uz/api/contact", {
+        name: name,
+        phone,
+        about
+      });
+
+      if (response.data) {
+        alert("Sizning ma'lumotlaringiz muvaffaqiyatli yuborildi!")
+      } else {
+        alert("Sizning ma'lumotlaringiz muvaffaqiyatli yuborilmadi!")
+      }
+    } catch (error) {
+      console.log("Sending Contact Info Error: ", error);
+      throw new Error("Sending Contact Info Error", {
+        cause: error,
+      })
+    }
+  }
   return (
     <section className="bg-[#222222] mt-10 text-white py-20 px-8 md:px-16 lg:px-24 rounded-[40px] overflow-hidden" id="contact">
       <div className="max-w-7xl mx-auto">
@@ -65,26 +92,32 @@ const ContactSection = () => {
               </label>
               <input
                 type="text"
+                defaultValue={name}
+                onChange={(e) => setName(e.target.value)}
                 className="bg-transparent w-full outline-none py-2 text-white placeholder-gray-800"
               />
             </div>
 
             <div className="border-b border-gray-700 pb-2">
               <label className="block text-[10px] uppercase tracking-widest text-gray-500 mb-1">
-                Elektron Pochta
+                Telefon raqamingiz
               </label>
               <input
-                type="email"
+                type="text"
+                defaultValue={phone}
+                onChange={(e) => setPhone(e.target.value)}
                 className="bg-transparent w-full outline-none py-2 text-white placeholder-gray-800"
               />
             </div>
 
             <div className="border-b border-gray-700 pb-2">
               <label className="block text-[10px] uppercase tracking-widest text-gray-500 mb-1">
-                Proyekt Haqida
+                Loyiha Haqida
               </label>
               <textarea
                 rows={1}
+                defaultValue={about}
+                onChange={(e) => setAbout(e.target.value)}
                 className="bg-transparent w-full outline-none py-2 text-white placeholder-gray-800 resize-none"
               />
             </div>
