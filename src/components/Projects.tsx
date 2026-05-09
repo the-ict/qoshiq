@@ -159,8 +159,8 @@ export default function Projects() {
                 </div>
             </div>
 
-            <div className="flex items-center justify-between gap-10">
-                <div className='w-[60%] flex items-center gap-10 p-10 rounded bg-white/80'>
+            <div className="flex items-center justify-between gap-10 max-lg:flex-col">
+                <div className='max-lg:w-full w-[60%] flex items-center gap-10 p-10 rounded bg-white/80'>
                     <img src="/assets/projects/akbw.png" alt="" className='h-[400px] w-[60%] project-img p-5 rounded bg-gray-100' />
                     <div className='flex flex-col gap-5 items-start'>
                         <h3 className='project-name py-2 px-5 bg-yellow-900 rounded text-white'>{projectsData[currentSlide].title}</h3>
@@ -169,7 +169,7 @@ export default function Projects() {
                         <Link to={projectsData[currentSlide].link} className='cursor-pointer py-3 px-10 project-live-button bg-white rounded-full text-black border-2 text-xs font-bold hover:bg-black hover:text-white hover:border-white hover:border-2 transition-all'>Jonli ko'ring</Link>
                     </div>
                 </div>
-                <div className='w-[40%] grid grid-cols-4 gap-5'>
+                <div className='w-[40%] max-lg:w-full max-lg:flex max-lg:items-center max-lg:justify-center grid grid-cols-4 gap-5'>
                     {
                         projectsData.map(i => (
                             <div className='p-5 rounded-lg cursor-pointer' key={i.id} onClick={() => onSlideClick(i.id)}>
