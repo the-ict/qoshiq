@@ -1,5 +1,6 @@
 import { useGSAP } from "@gsap/react";
 import { useState } from "react";
+import gsap from "gsap";
 
 type ActiveTabs = "home" | "services" | "process" | "projects";
 
@@ -16,11 +17,6 @@ export default function Menu() {
         positionLeft: 0,
         width: 0,
     })
-
-    const handleTabChange = (tab: ActiveTabs) => {
-        setIsActive(tab);
-    };
-
 
     const getTabClass = (tab: ActiveTabs) => {
         const isTabActive = isActive === tab;
