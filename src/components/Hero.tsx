@@ -83,7 +83,7 @@ const HeroSection: React.FC = () => {
             </div>
 
             <button className="bg-[#828282] max-md:w-full hover:bg-[#6e6e6e] transition-colors text-white px-8 py-4 rounded-full flex items-center gap-3 group fade-down">
-              <span className="text-lg">Keling gaplashamiz</span>
+              <a href='#contact' className="text-lg">Keling gaplashamiz</a >
               <svg
                 width="20"
                 height="20"

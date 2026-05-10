@@ -25,9 +25,9 @@ export default function Menu() {
     });
 
     return (
-        <div className="flex items-center my-3 fixed bottom-10 h-[60px] w-screen left-0 right-0 justify-center text-white z-[100]">
-            <div className="bg-[#1a1818]/80 backdrop-blur-md border border-white/10 p-2 rounded-full">
-                <ul className="flex items-center gap-2 text-sm font-semibold relative">
+        <div className="flex items-center my-3 fixed bottom-6 md:bottom-10 h-[60px] w-screen left-0 right-0 justify-center text-white z-[100]">
+            <div className="bg-[#1a1818]/80 backdrop-blur-md border border-white/10 p-1.5 md:p-2 rounded-full max-w-[95vw] md:max-w-none overflow-x-auto no-scrollbar">
+                <ul className="flex items-center gap-1 md:gap-2 text-xs md:text-sm font-semibold relative">
                     {
                         Object.keys(activeTabs).map((tab, index) => (
                             <TabItem
@@ -58,7 +58,16 @@ const TabItem = ({ tab, setPosition, setIsActive, isActive }: ITabItemProps) => 
 
     const handleTabChange = (tab: ActiveTabs) => {
         setIsActive(tab);
-        // Add scroll logic here if needed, or emit event
+        
+        if (ref.current) {
+            const { width } = ref.current.getBoundingClientRect();
+            setPosition({
+                width,
+                opacity: 1,
+                left: ref.current.offsetLeft,
+            });
+        }
+
         const element = document.getElementById(tab);
         if (element) {
             element.scrollIntoView({ behavior: 'smooth' });
@@ -87,7 +96,7 @@ const TabItem = ({ tab, setPosition, setIsActive, isActive }: ITabItemProps) => 
                     opacity: 0,
                 })
             }}
-            className={`cursor-pointer z-10 px-6 py-2 rounded-full relative transition-colors duration-300 ${isActive ? "text-white" : "text-white/70 hover:text-white"
+            className={`cursor-pointer z-10 px-3 md:px-6 py-1.5 md:py-2 rounded-full relative transition-colors duration-300 whitespace-nowrap ${isActive ? "text-white" : "text-white/70 hover:text-white"
                 }`}
             onClick={() => handleTabChange(tab)}
         >

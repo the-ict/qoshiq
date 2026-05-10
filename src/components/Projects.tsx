@@ -144,14 +144,14 @@ export default function Projects() {
                 </div>
 
                 <div className="md:col-span-5">
-                    <h2 className="text-5xl md:text-6xl font-bold text-[#1a1a1a] tracking-tight flex items-start works-headline leading-none">
+                    <h2 className="text-5xl md:text-6xl max-lg:text-xs font-bold text-[#1a1a1a] tracking-tight flex items-start works-headline leading-none">
                         Eng oxirgi loyihalarimiz
                         <span className="text-xl ml-3 mt-2 font-medium opacity-20">{projectsData.length}</span>
                     </h2>
                 </div>
 
                 <div className="md:col-span-5">
-                    <p className="text-gray-400 text-lg md:text-xl leading-relaxed max-w-lg works-subtitle font-medium">
+                    <p className="text-gray-400 text-xs md:text-xl leading-relaxed max-lg:text-[10px] max-w-lg works-subtitle font-medium">
                         Bizning loyihalar portfoliysini o'rganing - bu yerda biz innovativ IT
                         yechimlar bilan bizneslarni raqamlashtirdik. Har bir loyiha biz uchun yangi imkoniyat.
                     </p>
