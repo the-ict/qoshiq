@@ -6,11 +6,11 @@ export default function Navbar() {
                 <div className="h-5 w-10 bg-black rounded-full max-md:hidden">
                 </div>
                 <div className="flex items-center gap-3">
-                    <a href="#" className="hover:opacity-70 transition max-md:text-xs">Qo'ng'iroqni bron qilish</a>
-                    <button className="bg-[#1A1A1A] text-white px-6 py-3 rounded-full flex items-center gap-2 hover:bg-opacity-90 transition max-md:text-xs">
+                    <a href="#contact" className="hover:opacity-70 transition max-md:text-xs">Qo'ng'iroqni bron qilish</a>
+                    <a href={"#contact"} className="bg-[#1A1A1A] text-white px-6 py-3 rounded-full flex items-center gap-2 hover:bg-opacity-90 transition max-md:text-xs">
                         <span>Keling, gaplashamiz</span>
                         <span className="text-lg">→</span>
-                    </button>
+                    </a>
                 </div>
             </div>
         </nav>

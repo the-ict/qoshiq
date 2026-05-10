@@ -4,8 +4,18 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
 import Home from "./pages/Home";
 import { gsap } from "gsap";
+import Lenis from "lenis";
 
 gsap.registerPlugin(useGSAP, ScrollTrigger, ScrollSmoother);
+const lenis = new Lenis();
+
+lenis.on('scroll', ScrollTrigger.update);
+
+gsap.ticker.add((time) => {
+  lenis.raf(time * 1000); 
+});
+
+gsap.ticker.lagSmoothing(0)
 
 export default function App() {
   useGSAP(() => {

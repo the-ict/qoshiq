@@ -48,11 +48,10 @@ const ContactSection = () => {
         cause: error,
       })
     }
-  }
+  };
   return (
-    <section className="bg-[#222222] mt-10 text-white py-20 px-8 md:px-16 lg:px-24 rounded-[40px] overflow-hidden" id="contact">
+    <section className="bg-[#222222] mt-10 text-white px-8 md:px-16 lg:px-24 rounded-[40px] overflow-hidden py-[100px]" id="contact">
       <div className="max-w-7xl mx-auto">
-
         <div className="relative mb-20">
           <h2 className="text-6xl md:text-8xl font-medium leading-[0.9] max-w-2xl contact-hero-title">
             Birgalikda Loyihani Boshlaylik
