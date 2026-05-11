@@ -83,19 +83,18 @@ export default function Services() {
     }, { scope: containerRef });
 
     return (
-        <section className="py-24 md:py-40 px-4 md:px-10 overflow-hidden" ref={containerRef} id="services">
+        <section className="py-24 md:py-10 px-4 md:px-10 overflow-hidden" ref={containerRef} id="services">
             <div className="flex flex-col lg:flex-row items-start mb-20 md:mb-32 gap-8 lg:gap-16" ref={headerRef}>
-                <span className="text-xs font-black tracking-[0.4em] text-gray-400 uppercase pt-2">
+                <div>
+                    <span className="text-xs uppercase tracking-widest text-gray-500 mb-4 block fade-down">
                     / Xizmatlar /
-                </span>
-                <div className="max-w-4xl">
-                    <h2 className="text-5xl md:text-7xl lg:text-8xl font-bold leading-[0.95] tracking-tight text-[#1a1a1a]">
-                        Biznesingizni <br /> 
-                        <span className="text-gray-400">rivojlantiring.</span>
-                    </h2>
-                    <p className="mt-12 text-xl md:text-2xl text-gray-500 max-w-xl font-medium leading-relaxed">
+                    </span>
+                    <h1 className="text-5xl md:text-6xl font-medium leading-tight fade-down">
+                        Bizning Xizmatlarimiz <br />
+                        <p className="mt-12 text-xl md:text-2xl text-gray-500 max-w-xl font-medium leading-relaxed">
                         Biz sizning biznesingiz uchun eng zamonaviy va innovatsion IT yechimlarni taqdim etamiz.
                     </p>
+                    </h1>
                 </div>
             </div>
             

@@ -61,48 +61,51 @@ const HeroSection: React.FC = () => {
       <div className="mt-12">
         <img src="/assets/hero.png" alt="" className='rounded-[10px] hero-img w-full' />
       </div>
-
-      <section className="min-h-[400px] grid grid-cols-2 w-full mt-12 flex-col md:flex-row justify-between items-start font-sans text-[#1a1a1a] max-md:grid-cols-1">
-        <div className="flex items-start gap-12 grid-cols-5">
-          <span className="text-xs font-medium tracking-widest text-gray-500 uppercase fade-down">
-            / Studio /
-          </span>
-          <h1 className="text-3xl md:text-5xl lg:text-6xl font-semibold leading-tight tracking-tight max-w-md fade-down">
-            Bepul maslahat oling!
-          </h1>
-        </div>
-
-        <div className="flex flex-col gap-8 grid-cols-1">
-          <p className="text-lg md:text-xl text-gray-600 leading-relaxed fade-down">
-            Biz bepulga konsultatsiyani taminlaymiz, avtomatlashtirish, startup, mobile ilova, web dastur, erp va crm haqida malumot oling
-          </p>
-
-          <div className="flex flex-wrap items-center gap-4 max-md:w-full">
-            <div className="bg-[#ebebeb] max-md:max-w-full px-6 py-4 rounded-full text-sm font-medium text-gray-700 max-w-[280px] fade-down">
-              Biz savollaringizga qisqa telefonda javob beramiz
-            </div>
-
-            <button className="bg-[#828282] max-md:w-full hover:bg-[#6e6e6e] transition-colors text-white px-8 py-4 rounded-full flex items-center gap-3 group fade-down">
-              <a href='#contact' className="text-lg">Keling gaplashamiz</a >
-              <svg
-                width="20"
-                height="20"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                className="group-hover:translate-x-1 transition-transform"
-              >
-                <path d="M5 12h14M12 5l7 7-7 7" />
-              </svg>
-            </button>
-          </div>
-        </div>
-      </section>
     </div>
   );
 };
+
+const StudioSection = () => (
+
+  <section className="min-h-[400px] grid grid-cols-2 w-full mt-12 flex-col md:flex-row justify-between items-start font-sans text-[#1a1a1a] max-md:grid-cols-1">
+    <div className="flex items-start gap-12 grid-cols-5">
+      <span className="text-xs font-medium tracking-widest text-gray-500 uppercase fade-down">
+        / Studio /
+      </span>
+      <h1 className="text-3xl md:text-5xl lg:text-6xl font-semibold leading-tight tracking-tight max-w-md fade-down">
+        Bepul maslahat oling!
+      </h1>
+    </div>
+
+    <div className="flex flex-col gap-8 grid-cols-1">
+      <p className="text-lg md:text-xl text-gray-600 leading-relaxed fade-down">
+        Biz bepulga konsultatsiyani taminlaymiz, avtomatlashtirish, startup, mobile ilova, web dastur, erp va crm haqida malumot oling
+      </p>
+
+      <div className="flex flex-wrap items-center gap-4 max-md:w-full">
+        <div className="bg-[#ebebeb] max-md:max-w-full px-6 py-4 rounded-full text-sm font-medium text-gray-700 max-w-[280px] fade-down">
+          Biz savollaringizga qisqa telefonda javob beramiz
+        </div>
+
+        <button className="bg-[#828282] max-md:w-full hover:bg-[#6e6e6e] transition-colors text-white px-8 py-4 rounded-full flex items-center gap-3 group fade-down">
+          <a href='#contact' className="text-lg">Keling gaplashamiz</a >
+          <svg
+            width="20"
+            height="20"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            className="group-hover:translate-x-1 transition-transform"
+          >
+            <path d="M5 12h14M12 5l7 7-7 7" />
+          </svg>
+        </button>
+      </div>
+    </div>
+  </section>
+)
 
 export default HeroSection;
